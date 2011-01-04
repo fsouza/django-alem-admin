@@ -4,6 +4,7 @@ from django import forms
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -22,3 +23,8 @@ def new_product(request):
             'form' : form
         }, context_instance=RequestContext(request)
     )
+
+@login_required
+def say_hello(request):
+    """Says Hello world on GET requests"""
+    return HttpResponse('Hello world!')
