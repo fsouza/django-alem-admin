@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     (r'^new_product', 'django.views.generic.create_update.create_object', { 'model' : Product, 'post_save_redirect' : '/products/', 'template_name' : 'product_form.html'}),
     (r'^login/$', 'django.contrib.auth.views.login', { 'template_name' : 'login.html' }),
     (r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page' : '/new_product' }),
+    (r'^contact/$', 'core.views.contact'),
     (r'^$', 'core.views.say_hello'),
 )
