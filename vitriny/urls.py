@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from core.models import Product
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -13,5 +14,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
-    (r'^new_product', 'core.views.new_product'),
+    (r'^new_product', 'django.views.generic.create_update.create_object', { 'model' : Product, 'post_save_redirect' : '/products/', 'template_name' : 'product_form.html'}),
 )
